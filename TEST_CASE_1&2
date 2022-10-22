@@ -1,0 +1,57 @@
+from selenium import webdriver
+from main import Confidential_Data
+from selenium.webdriver.common.by import By
+import time
+import self
+import requests
+
+class Umar:
+
+
+    url = "https://opensource-demo.orangehrmlive.com/"
+    soup = requests.get(url)
+    driver = webdriver.Chrome()
+
+    def Orangehrm_Login(self):
+        Username = Confidential_Data().Orangehrm_Username
+        Password = Confidential_Data().Orangehrm_Password
+        self.driver.get(self.url)
+        time.sleep(2)
+        Username1 = self.driver.find_element(by=By.XPATH,
+                                             value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input')
+        time.sleep(2)
+        Password1 = self.driver.find_element(by=By.XPATH,
+                                             value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input')
+        time.sleep(2)
+        submit_button = self.driver.find_element(by=By.XPATH,
+                                                 value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button')
+        Username1.send_keys(Username)
+        Password1.send_keys(Password)
+        submit_button.click()
+
+
+        self.driver.find_element(by=By.XPATH, value='//*[@id="app"]/div[1]/div[1]/header/div[1]/div[2]/ul/li').click()
+        time.sleep(2)
+        self.driver.find_element(by=By.XPATH, value='//*[@id="app"]/div[1]/div[1]/header/div[1]/div[2]/ul/li/ul/li[4]/a').click()
+
+
+    def Orangehrm_Login1(self):
+
+        self.driver.get(self.url)
+        time.sleep(2)
+        self.driver.find_element(by=By.XPATH,
+                                             value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input').send_keys("Admin")
+        time.sleep(2)
+        self.driver.find_element(by=By.XPATH,
+                                             value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input').send_keys(
+            '125479')
+
+        self.driver.find_element(by=By.XPATH,
+                                                 value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button').click()
+
+
+s = Umar()
+s.Orangehrm_Login()
+s.Orangehrm_Login1()
+
+
