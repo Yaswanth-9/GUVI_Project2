@@ -1,0 +1,6 @@
+import self
+from selenium.webdriver.common.by import By
+
+self.driver.find_element(by=By.XPATH,
+                         value='//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input').send_keys(
+            '125479')
